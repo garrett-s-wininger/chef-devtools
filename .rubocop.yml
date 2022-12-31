@@ -1,0 +1,13 @@
+---
+Layout/LineLength:
+  Max: 88
+Metrics/BlockLength:
+  AllowedMethods:
+    - control
+    - describe
+  Max: 30
+Naming/FileName:
+  Exclude:
+    - Policyfile.rb
+AllCops:
+  NewCops: enable

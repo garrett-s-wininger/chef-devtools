@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Cookbook:: devtools
 # Spec:: c_cpp

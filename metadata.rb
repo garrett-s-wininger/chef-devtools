@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 name 'devtools'
 maintainer 'Garrett Wininger'
 maintainer_email 'garrett.s.wininger@outlook.com'

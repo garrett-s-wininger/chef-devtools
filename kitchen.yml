@@ -1,16 +1,93 @@
 ---
 driver:
-  name: vagrant
+  name: docker
 provisioner:
   name: chef_zero
 verifier:
   name: inspec
 platforms:
-  - name: ubuntu-18.04
-  - name: centos-7
+  - name: debian-11
+    driver:
+      image: debian:11
+  - name: ubuntu-20.04
+    driver:
+      image: ubuntu:20.04
 suites:
-  - name: default
+  - name: ada
+    run_list:
+      - recipe[devtools::ada]
     verifier:
       inspec_tests:
-        - test/integration/default
-    attributes:
+        - test/integration/ada
+  - name: c_cpp
+    run_list:
+      - recipe[devtools::c_cpp]
+    verifier:
+      inspec_tests:
+        - test/integration/c_cpp
+  - name: erlang
+    run_list:
+      - recipe[devtools::erlang]
+    verifier:
+      inspec_tests:
+        - test/integration/erlang
+  - name: fortran
+    run_list:
+      - recipe[devtools::fortran]
+    verifier:
+      inspec_tests:
+        - test/integration/fortran
+  - name: go
+    run_list:
+      - recipe[devtools::go]
+    verifier:
+      inspec_tests:
+        - test/integration/go
+  - name: haskell
+    run_list:
+      - recipe[devtools::haskell]
+    verifier:
+      inspec_tests:
+        - test/integration/haskell
+  - name: java
+    run_list:
+      - recipe[devtools::java]
+    verifier:
+      inspec_tests:
+        - test/integration/java
+  - name: octave
+    run_list:
+      - recipe[devtools::octave]
+    verifier:
+      inspec_tests:
+        - test/integration/octave
+  - name: opengl_vulkan
+    run_list:
+      - recipe[devtools::opengl_vulkan]
+    verifier:
+      inspec_tests:
+        - test/integration/opengl_vulkan
+  - name: performance_analysis
+    run_list:
+      - recipe[devtools::performance_analysis]
+    verifier:
+      inspec_tests:
+        - test/integration/performance_analysis
+  - name: php
+    run_list:
+      - recipe[devtools::php]
+    verifier:
+      inspec_tests:
+        - test/integration/php
+  - name: ruby
+    run_list:
+      - recipe[devtools::ruby]
+    verifier:
+      inspec_tests:
+        - test/integration/ruby
+  - name: rust
+    run_list:
+      - recipe[devtools::rust]
+    verifier:
+      inspec_tests:
+        - test/integration/rust
